@@ -12,12 +12,12 @@ function Board({xNext, squares, onPlay}) {
   const winner = calculateWinner(squares);
   const filled = allFilled(squares);
   if(winner) {
-    status = `Winner: ${winner}`
+    status_msg = `Winner: ${winner}`
   }
   else if(filled) {
-    status = "Tie game!";
+    status_msg = "Tie game!";
   }
-  else status = `Next Player: ${(xNext ? "X" : "O")}`;
+  else status_msg = `Next Player: ${(xNext ? "X" : "O")}`;
   function handleClick(i) {
     let nextSquares = squares.slice();
     if(squares[i] || winner || filled)
@@ -30,7 +30,7 @@ function Board({xNext, squares, onPlay}) {
   }
   return (
   <>
-  <div className="status">{status}</div>
+  <div className="status">{status_msg}</div>
   <div className="board-row">
     <Square value={squares[0]} onSquareClick={() => handleClick(0)}/>
     <Square value={squares[1]} onSquareClick={() => handleClick(1)}/>

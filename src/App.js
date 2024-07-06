@@ -11,6 +11,7 @@ function Square({value, onSquareClick}) {
 function Board({xNext, squares, onPlay}) {
   const winner = calculateWinner(squares);
   const filled = allFilled(squares);
+  let status_msg;
   if(winner) {
     status_msg = `Winner: ${winner}`
   }
